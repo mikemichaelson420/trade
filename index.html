@@ -1,0 +1,1057 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Advanced Stock Market Trading Game&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* General Styles */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #74ebd5, #ACB6E5);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 1000px; /* compact UI */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 0 15px rgba(0,0,0,0.2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1, h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 5px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#timer {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.4em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#marketSentiment {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.1em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #3E2723;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#economicIndicators {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #424242;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>table {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>table, th, td {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>th, td {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Form Styles */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#tradeForm {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#tradeForm label, #tradeForm input, #tradeForm select, #tradeForm button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 6px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #4CAF50;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #45a049;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.max-btn {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #2196F3;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#resetButton {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f44336;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Button colors for short selling */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#shortSellButton {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #FF9800;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#coverShortButton {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #9C27B0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Panels (Log, Ticker, Social Media, Achievements &amp; Analytics) */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#messageLog, #newsTicker, #socialMediaFeed, #achievementsPanel, #analyticsPanel {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #fafafa;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-y: auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.85em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.disabled {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.5;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Chart Canvas */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#chartContainer {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#chartCanvas {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Insider Tip */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#insiderTipArea {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px dashed #FF9800;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #FFF3E0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #E65100;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Modal Styles (for settings and mini‑games) */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.modal {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 1000;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: rgba(0,0,0,0.5);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.modal-content {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 10% auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #888;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 80%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.close-modal {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #aaa;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>float: right;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.close-modal:hover,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.close-modal:focus {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: black;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Settings Button */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#settingsButton {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>right: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #9C27B0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 5px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Advanced Stock Market Trading Game&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="timer"&gt;Time Remaining: 15:00&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="marketSentiment"&gt;Market Sentiment: Neutral&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="economicIndicators"&gt;Economic Indicators: Inflation: 2.0%, GDP Growth: 3.0%, Unemployment: 5.0%&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Market&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;table id="marketTable"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;th&gt;Commodity&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;th&gt;Price&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;th&gt;Available Shares&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Market data generated by JavaScript --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/table&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Your Portfolio&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="portfolio"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Cash: $&lt;span id="cashDisplay"&gt;5000.00&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="holdings"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Holdings (with profit and liquidation price) will be listed here --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Trade&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="insiderTipArea" style="display:none;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;form id="tradeForm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="commoditySelect"&gt;Commodity:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="commoditySelect"&gt;&lt;/select&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="quantityInput"&gt;Quantity:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="number" id="quantityInput" min="1" value="1"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="maxBuyButton" class="max-btn"&gt;Max Buy&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="maxSellButton" class="max-btn"&gt;Max Sell&lt;/button&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="leverageSelect"&gt;Leverage:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="leverageSelect"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="1"&gt;1× (Normal)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="2"&gt;2× (Margin Trading)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="3"&gt;3× (High Leverage)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="4"&gt;4× (Extreme Leverage)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="buyButton"&gt;Buy&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="sellButton"&gt;Sell&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="sellAllButton" style="background-color:#f44336;"&gt;Sell All&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="shortSellButton" class="max-btn"&gt;Short Sell&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="coverShortButton" class="max-btn"&gt;Cover Short&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="autoAdvisorButton" class="max-btn"&gt;Auto Advisor&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Price History Chart&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="chartContainer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;canvas id="chartCanvas" width="800" height="200"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Game Log&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="messageLog"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;News Ticker&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="newsTicker"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Social Media Trends&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="socialMediaFeed"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Achievements&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="achievementsPanel"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Analytics&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="analyticsPanel"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="text-align: center; margin-top: 10px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="resetButton"&gt;Reset Game&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Settings Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="settingsModal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="close-modal" id="closeSettings"&gt;&amp;times;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Game Settings&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;&lt;input type="checkbox" id="toggleNews" checked&gt; Show News Ticker&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;&lt;input type="checkbox" id="toggleInsider" checked&gt; Enable Insider Tips&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;&lt;input type="checkbox" id="toggleAudio" checked&gt; Enable Audio&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="saveSettings"&gt;Save Settings&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Summary Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="summaryModal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Game Over Summary&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p id="finalScore"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Achievements Unlocked:&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul id="finalAchievements"&gt;&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="closeSummary"&gt;Close&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- New Mini-Game Modals --&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Flash Trade Challenge Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="flashTradeModal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="close-modal" id="closeFlashTrade"&gt;&amp;times;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Flash Trade Challenge&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p id="flashTradeMsg"&gt;Click the button within &lt;span id="flashTradeTimer"&gt;10&lt;/span&gt; seconds to win a bonus!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="flashTradeButton"&gt;Trade Now!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Pattern Recognition Puzzle Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="patternPuzzleModal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="close-modal" id="closePatternPuzzle"&gt;&amp;times;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Pattern Recognition Puzzle&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p id="patternSequence"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Will the next value be &lt;strong&gt;Higher&lt;/strong&gt; or &lt;strong&gt;Lower&lt;/strong&gt;?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="patternHigher"&gt;Higher&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="patternLower"&gt;Lower&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Reaction Mini-Game Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="reactionModal" class="modal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="modal-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="close-modal" id="closeReaction"&gt;&amp;times;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Reaction Challenge&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Get ready...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="reactionButton" style="display:none;"&gt;Click Me!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p id="reactionTimer"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Settings Button --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button id="settingsButton"&gt;Settings&lt;/button&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Audio Elements --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;audio id="tradeSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"&gt;&lt;/audio&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;audio id="achievementSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"&gt;&lt;/audio&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================= Global Variables &amp; Data ========================= */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let gameTime = 15 * 60; // 15 minutes in seconds</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let cash = 5000; // Starting with $5,000</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let portfolio = {}; // key: commodity name, value: { shares, cashInvested, marginLoan, entryPrice, leverage }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let tradeHistory = [];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let gameInterval, priceInterval, bankEventInterval, newsEventInterval, insiderTipInterval;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let dividendInterval, sentimentInterval, splitInterval, flashCrashInterval, marketRallyInterval;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let socialMediaInterval, globalEventInterval, earningsInterval, economicInterval, analyticsInterval;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// New intervals for mini‑games:</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let flashTradeInterval, patternPuzzleInterval, reactionInterval;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let settings = { newsTicker: true, insiderTips: true, audio: true };</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Achievements tracking</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let achievements = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>firstTrade: { unlocked: false, description: "Completed your first trade!" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bigProfit: { unlocked: false, description: "Made a profit of over $500 in a trade!" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>diversified: { unlocked: false, description: "Held positions in 2 or more commodities!" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>marginMaster: { unlocked: false, description: "Used margin trading (leveraged positions)!" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bigSpender: { unlocked: false, description: "Invested over $5000 in a single trade!" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>insidersFavor: { unlocked: false, description: "Acted on an insider tip!" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Price history for charting</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let priceHistory = {};</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Current Insider Tip</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let currentInsiderTip = null;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Commodities (Bitcoin/Ethereum removed)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let commodities = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Lumber",<span class="Apple-converted-space">      </span>price: 50, <span class="Apple-converted-space">  </span>available: 150, volatilityMultiplier: 2.0 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Oil", <span class="Apple-converted-space">        </span>price: 100,<span class="Apple-converted-space">  </span>available: 150, volatilityMultiplier: 2.0 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Gold",<span class="Apple-converted-space">        </span>price: 1500, available: 150, volatilityMultiplier: 2.0 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Electronics", price: 200,<span class="Apple-converted-space">  </span>available: 150, volatilityMultiplier: 2.0 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Rice",<span class="Apple-converted-space">        </span>price: 20, <span class="Apple-converted-space">  </span>available: 150, volatilityMultiplier: 2.0 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ name: "Coffee",<span class="Apple-converted-space">      </span>price: 10, <span class="Apple-converted-space">  </span>available: 150, volatilityMultiplier: 2.0 }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>commodities.forEach(c =&gt; { priceHistory[c.name] = [c.price]; });</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================= Utility Functions ========================= */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function formatTime(seconds) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let m = Math.floor(seconds / 60), s = seconds % 60;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return (m &lt; 10 ? "0" + m : m) + ":" + (s &lt; 10 ? "0" + s : s);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function logMessage(msg) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let logDiv = document.getElementById("messageLog");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let p = document.createElement("p");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.innerText = msg;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logDiv.appendChild(p);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logDiv.scrollTop = logDiv.scrollHeight;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(settings.audio) document.getElementById("tradeSound").play();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function logNews(msg) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!settings.newsTicker) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let newsDiv = document.getElementById("newsTicker");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let p = document.createElement("p");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.innerText = msg;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>newsDiv.appendChild(p);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>newsDiv.scrollTop = newsDiv.scrollHeight;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function logSocialMedia(msg) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let smDiv = document.getElementById("socialMediaFeed");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let p = document.createElement("p");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.innerText = msg;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>smDiv.appendChild(p);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>smDiv.scrollTop = smDiv.scrollHeight;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateAchievementsDisplay() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let achDiv = document.getElementById("achievementsPanel");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>achDiv.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for(let key in achievements) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(achievements[key].unlocked) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>let p = document.createElement("p");</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.innerText = achievements[key].description;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>achDiv.appendChild(p);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function unlockAchievement(key) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!achievements[key].unlocked) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>achievements[key].unlocked = true;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logMessage("Achievement Unlocked: " + achievements[key].description);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateAchievementsDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(settings.audio) document.getElementById("achievementSound").play();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================= Display Update Functions ========================= */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("timer").innerText = "Time Remaining: " + formatTime(gameTime);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateMarketTable() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let tbody = document.querySelector("#marketTable tbody");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tbody.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>commodities.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let row = document.createElement("tr");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let nameCell = document.createElement("td"); nameCell.innerText = c.name;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let priceCell = document.createElement("td"); priceCell.innerText = "$" + c.price.toFixed(2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let availCell = document.createElement("td"); availCell.innerText = c.available;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>row.appendChild(nameCell); row.appendChild(priceCell); row.appendChild(availCell);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tbody.appendChild(row);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Update portfolio display to show profit and liquidation price if leveraged.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updatePortfolioDisplay() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("cashDisplay").innerText = cash.toFixed(2);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let holdingsDiv = document.getElementById("holdings");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>holdingsDiv.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for(let key in portfolio) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let pos = portfolio[key];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let c = commodities.find(x =&gt; x.name === key);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentPrice = c ? c.price : 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let holdingValue = pos.shares * currentPrice;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let netValue = holdingValue - pos.marginLoan;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Compute profit:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let profit;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(pos.shares &gt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>profit = (currentPrice * pos.shares - pos.marginLoan) - pos.cashInvested;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>profit = pos.cashInvested - (currentPrice * Math.abs(pos.shares));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Compute liquidation price if leverage &gt; 1 (for long positions, and symmetric for shorts)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let liquidationPrice = "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(pos.leverage &amp;&amp; pos.leverage &gt; 1) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>if(pos.shares &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let liq = pos.entryPrice * (1 - (pos.leverage - 1) * 0.25);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>liquidationPrice = liq.toFixed(2);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let liq = pos.entryPrice * (1 + (pos.leverage - 1) * 0.25);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>liquidationPrice = liq.toFixed(2);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let div = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>div.innerText = `${key} (${(pos.shares &gt;= 0 ? "Long" : "Short")}): ${pos.shares} shares, Value: $${holdingValue.toFixed(2)} (Net: $${netValue.toFixed(2)}), Profit: $${profit.toFixed(2)}` +</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>(liquidationPrice ? `, Liquidation: $${liquidationPrice}` : "");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>holdingsDiv.appendChild(div);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Update the price history chart and add axis labels.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateChart() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let canvas = document.getElementById("chartCanvas");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let ctx = canvas.getContext("2d");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.clearRect(0, 0, canvas.width, canvas.height);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let selectedCommodity = document.getElementById("commoditySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let history = priceHistory[selectedCommodity];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!history || history.length &lt; 2) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let minPrice = Math.min(...history);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let maxPrice = Math.max(...history);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let range = maxPrice - minPrice;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(range === 0) range = 1;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Draw price line</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.beginPath();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for(let i = 0; i &lt; history.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let x = (i / (history.length - 1)) * canvas.width;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let y = canvas.height - ((history[i] - minPrice) / range) * canvas.height;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(i === 0) ctx.moveTo(x, y);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>else ctx.lineTo(x, y);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.strokeStyle = "#FF5722";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.lineWidth = 2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.stroke();</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Draw vertical axis labels</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.font = "10px Arial";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.fillStyle = "black";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.fillText(minPrice.toFixed(2), 2, canvas.height - 2);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.fillText(maxPrice.toFixed(2), 2, 12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Draw horizontal axis labels (start and end indices)</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.fillText("0", 5, canvas.height - 5);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>ctx.fillText((history.length - 1).toString(), canvas.width - 20, canvas.height - 5);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateAnalytics() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let portfolioValue = calculatePortfolioValue();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let profit = portfolioValue - 5000;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let roi = (profit / 5000) * 100;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let analyticsDiv = document.getElementById("analyticsPanel");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>analyticsDiv.innerHTML = `&lt;p&gt;Total Portfolio Value: $${portfolioValue.toFixed(2)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                 </span>&lt;p&gt;Total Profit: $${profit.toFixed(2)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                 </span>&lt;p&gt;ROI: ${roi.toFixed(2)}%&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                 </span>&lt;p&gt;Total Trades: ${tradeHistory.length}&lt;/p&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================= Price &amp; Market Mechanics ========================= */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updatePrices() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Use a larger base fluctuation for more volatility.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let baseChange = (Math.random() - 0.5) * 0.03;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>commodities.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let change = baseChange * c.volatilityMultiplier;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>c.price *= (1 + change);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(c.price &lt; 0.1) c.price = 0.1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>priceHistory[c.name].push(c.price);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(priceHistory[c.name].length &gt; 100) { priceHistory[c.name].shift(); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateChart();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerBankEvent() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(Math.random() &lt; 0.1) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let c = commodities[Math.floor(Math.random() * commodities.length)];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let add = Math.random() &lt; 0.5;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let changeAmount = Math.floor(Math.random() * 20) + 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(add) { c.available += changeAmount; logMessage(`Bank event: Released ${changeAmount} additional shares of ${c.name}`); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>else { if(c.available &gt;= changeAmount) { c.available -= changeAmount; logMessage(`Bank event: Removed ${changeAmount} shares of ${c.name} from the market`); } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerNewsEvent() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities[Math.floor(Math.random() * commodities.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let events = ["a sudden surge in demand for", "supply disruptions in", "new regulations impacting", "unexpected surplus in", "market speculation around"];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let eventText = events[Math.floor(Math.random() * events.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let newsMsg = `Breaking News: ${eventText} ${c.name}! Volatility increased temporarily.`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage(newsMsg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logNews(newsMsg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let original = c.volatilityMultiplier;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>c.volatilityMultiplier = 4;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; { c.volatilityMultiplier = original; logMessage(`News Update: Market stabilizing for ${c.name}.`); logNews(`News Update: Market stabilizing for ${c.name}.`); }, 10000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerSocialMediaTrend() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let trends = ["#BuyTheDip", "#SellOff", "#MarketMadness", "#TechBoom", "#EcoInvest", "#AgriSurge"];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let trend = trends[Math.floor(Math.random() * trends.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logSocialMedia(`Social Media Trend: ${trend}`);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerGlobalEvent() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let events = ["an international trade dispute", "a global pandemic update", "a major geopolitical conflict", "a surprising diplomatic breakthrough"];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let event = events[Math.floor(Math.random() * events.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let msg = `Global Event: ${event} is affecting markets! Increased volatility for 10 seconds.`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage(msg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logNews(msg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>commodities.forEach(c =&gt; { c.volatilityMultiplier *= 1.5; });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; { commodities.forEach(c =&gt; { c.volatilityMultiplier /= 1.5; }); logMessage("Global Event Update: Markets stabilizing after global event."); }, 10000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateEconomicIndicators() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let inflation = (Math.random() * 2 + 1).toFixed(1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let gdp = (Math.random() * 3 + 2).toFixed(1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let unemployment = (Math.random() * 3 + 4).toFixed(1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("economicIndicators").innerText = `Economic Indicators: Inflation: ${inflation}%, GDP Growth: ${gdp}%, Unemployment: ${unemployment}%`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerEarningsReport() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities[Math.floor(Math.random() * commodities.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let reportTypes = ["better-than-expected earnings", "missed earnings estimates", "announced a new product line", "revealed a major expansion plan"];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let report = reportTypes[Math.floor(Math.random() * reportTypes.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let msg = `Earnings Report: ${c.name} ${report}! Volatility increased for 10 seconds.`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage(msg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logNews(msg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let original = c.volatilityMultiplier;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>c.volatilityMultiplier *= 2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; { c.volatilityMultiplier = original; logMessage(`Earnings Update: ${c.name} volatility normalizing.`); }, 10000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerDividendEvent() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities[Math.floor(Math.random() * commodities.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let yieldPct = (Math.random() * 0.01 + 0.005).toFixed(3);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(portfolio[c.name] &amp;&amp; portfolio[c.name].shares &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let dividend = portfolio[c.name].shares * c.price * yieldPct;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>cash += dividend;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logMessage(`Dividend: ${c.name} paid a dividend of $${dividend.toFixed(2)} (${(yieldPct * 100).toFixed(1)}% yield).`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logMessage(`Dividend: ${c.name} paid a dividend, but you hold no shares.`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerStockSplit() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(Math.random() &lt; 0.05) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let eligible = commodities.filter(c =&gt; c.price &gt; 100);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(eligible.length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>let c = eligible[Math.floor(Math.random() * eligible.length)];</p>
+<p class="p1"><span class="Apple-converted-space">          </span>c.available *= 2;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>c.price /= 2;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>if(portfolio[c.name]) { portfolio[c.name].shares *= 2; }</p>
+<p class="p1"><span class="Apple-converted-space">          </span>logMessage(`Stock Split: ${c.name} has split! Prices halved and shares doubled.`);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">          </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerFlashCrash() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(Math.random() &lt; 0.03) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logMessage("Flash Crash: Market prices are plummeting!");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>commodities.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>c.price *= 0.7;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>priceHistory[c.name].push(c.price);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>if(priceHistory[c.name].length &gt; 100) { priceHistory[c.name].shift(); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateChart();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; { logMessage("Flash Crash: Market is recovering..."); }, 10000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerMarketRally() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(Math.random() &lt; 0.03) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logMessage("Market Rally: Prices are surging!");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>commodities.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>c.price *= 1.3;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>priceHistory[c.name].push(c.price);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>if(priceHistory[c.name].length &gt; 100) { priceHistory[c.name].shift(); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateChart();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; { logMessage("Market Rally: Rally subsiding."); }, 10000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function calculatePortfolioValue() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let total = cash;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for(let key in portfolio) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let c = commodities.find(x =&gt; x.name === key);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(c) { total += portfolio[key].shares * c.price - portfolio[key].marginLoan; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return total;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function endGame() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(gameInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(priceInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(bankEventInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(newsEventInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(insiderTipInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(dividendInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(sentimentInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(splitInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(flashCrashInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(marketRallyInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(socialMediaInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(globalEventInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(earningsInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(economicInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(analyticsInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(flashTradeInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(patternPuzzleInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>clearInterval(reactionInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("tradeForm").classList.add("disabled");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage("Game over! Final portfolio value: $" + calculatePortfolioValue().toFixed(2));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>showSummaryModal();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================= Trade Handlers ========================= */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function sellPosition(commodityName, quantity) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!portfolio[commodityName]) { alert("No position in " + commodityName); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let pos = portfolio[commodityName];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(quantity &lt;= 0 || Math.abs(quantity) &gt; Math.abs(pos.shares)) { alert(`Invalid quantity. You hold ${pos.shares} shares.`); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities.find(x =&gt; x.name === commodityName);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let currentPrice = c.price;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let saleProceeds = currentPrice * quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let fraction = quantity / Math.abs(pos.shares);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let cashInvestedToSell = pos.cashInvested * fraction;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let marginLoanToSell = pos.marginLoan * fraction;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let profit = saleProceeds - (cashInvestedToSell + marginLoanToSell);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(pos.shares &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>cash += saleProceeds - marginLoanToSell;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>cash -= saleProceeds - marginLoanToSell;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>profit = -profit;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pos.shares = pos.shares &gt; 0 ? pos.shares - quantity : pos.shares + quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pos.cashInvested -= cashInvestedToSell;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pos.marginLoan -= marginLoanToSell;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>c.available += quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage(`Sold ${quantity} shares of ${commodityName} at $${currentPrice.toFixed(2)}. Profit: $${profit.toFixed(2)}`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(profit &gt; 500 &amp;&amp; !achievements.bigProfit.unlocked) { unlockAchievement("bigProfit"); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(Object.keys(portfolio).length &gt;= 2 &amp;&amp; !achievements.diversified.unlocked) { unlockAchievement("diversified"); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(pos.shares === 0) { delete portfolio[commodityName]; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tradeHistory.push({ type: "Sell", commodity: commodityName, quantity: quantity, price: currentPrice, profit: profit });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("buyButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let commodityName = document.getElementById("commoditySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let quantity = parseInt(document.getElementById("quantityInput").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let leverage = parseInt(document.getElementById("leverageSelect").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(quantity &lt;= 0) { alert("Quantity must be &gt; 0"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(portfolio[commodityName] &amp;&amp; portfolio[commodityName].shares &gt; 0) { alert("Already have a long position in " + commodityName); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities.find(x =&gt; x.name === commodityName);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(c.available &lt; quantity) { alert("Not enough shares available."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let currentPrice = c.price;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let totalValue = currentPrice * quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let cashRequired = totalValue / leverage;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(cash &lt; cashRequired) { alert(`Insufficient funds. Need $${cashRequired.toFixed(2)}.`); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cash -= cashRequired;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>c.available -= quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let marginLoan = (leverage &gt; 1) ? (totalValue - cashRequired) : 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>portfolio[commodityName] = { shares: quantity, cashInvested: cashRequired, marginLoan: marginLoan, entryPrice: currentPrice, leverage: leverage };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage(`Bought ${quantity} shares of ${commodityName} at $${currentPrice.toFixed(2)} with ${leverage}× leverage.`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(currentInsiderTip &amp;&amp; currentInsiderTip.commodity === commodityName &amp;&amp; Date.now() &lt; currentInsiderTip.expires) { unlockAchievement("insidersFavor"); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!achievements.firstTrade.unlocked) { unlockAchievement("firstTrade"); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(leverage &gt; 1 &amp;&amp; !achievements.marginMaster.unlocked) { unlockAchievement("marginMaster"); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(totalValue &gt;= 5000 &amp;&amp; !achievements.bigSpender.unlocked) { unlockAchievement("bigSpender"); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tradeHistory.push({ type: "Buy", commodity: commodityName, quantity: quantity, price: currentPrice });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("sellButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let commodityName = document.getElementById("commoditySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let quantity = parseInt(document.getElementById("quantityInput").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>sellPosition(commodityName, quantity);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("sellAllButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let positions = Object.keys(portfolio);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(positions.length === 0) { alert("No positions to sell!"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>positions.forEach(function(commodityName) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let shares = Math.abs(portfolio[commodityName].shares);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sellPosition(commodityName, shares);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("maxBuyButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let commodityName = document.getElementById("commoditySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let leverage = parseInt(document.getElementById("leverageSelect").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities.find(x =&gt; x.name === commodityName);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!c) { alert("Commodity not found."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let maxQty = Math.floor((cash * leverage) / c.price);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>maxQty = Math.min(maxQty, c.available);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(maxQty &lt;= 0) { alert("Cannot buy any shares."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("quantityInput").value = maxQty;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("maxSellButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let commodityName = document.getElementById("commoditySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!portfolio[commodityName]) { alert("No position in " + commodityName); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("quantityInput").value = Math.abs(portfolio[commodityName].shares);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("shortSellButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let commodityName = document.getElementById("commoditySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let quantity = parseInt(document.getElementById("quantityInput").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(quantity &lt;= 0) { alert("Quantity must be &gt; 0"); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(portfolio[commodityName] &amp;&amp; portfolio[commodityName].shares &lt; 0) { alert("Already have a short position in " + commodityName); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities.find(x =&gt; x.name === commodityName);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(c.available &lt; quantity) { alert("Not enough shares available to short."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let currentPrice = c.price;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cash += currentPrice * quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>c.available -= quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>portfolio[commodityName] = { shares: -quantity, cashInvested: currentPrice * quantity, marginLoan: 0, entryPrice: currentPrice };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage(`Short sold ${quantity} shares of ${commodityName} at $${currentPrice.toFixed(2)}.`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tradeHistory.push({ type: "Short Sell", commodity: commodityName, quantity: quantity, price: currentPrice });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("coverShortButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let commodityName = document.getElementById("commoditySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!portfolio[commodityName] || portfolio[commodityName].shares &gt;= 0) { alert("No short position in " + commodityName); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let quantity = parseInt(document.getElementById("quantityInput").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(quantity &lt;= 0 || quantity &gt; Math.abs(portfolio[commodityName].shares)) { alert("Invalid quantity."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities.find(x =&gt; x.name === commodityName);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let currentPrice = c.price;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let cost = currentPrice * quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(cash &lt; cost) { alert("Insufficient funds to cover short."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cash -= cost;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>c.available += quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let pos = portfolio[commodityName];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let fraction = quantity / Math.abs(pos.shares);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pos.shares += quantity;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pos.cashInvested -= pos.cashInvested * fraction;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage(`Covered short of ${quantity} shares of ${commodityName} at $${currentPrice.toFixed(2)}.`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(pos.shares === 0) { delete portfolio[commodityName]; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tradeHistory.push({ type: "Cover Short", commodity: commodityName, quantity: quantity, price: currentPrice });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("autoAdvisorButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let commodityName = document.getElementById("commoditySelect").value;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities.find(x =&gt; x.name === commodityName);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!c) { alert("Commodity not found."); return; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let history = priceHistory[commodityName];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let avg = history.reduce((acc, val) =&gt; acc + val, 0) / history.length;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let currentPrice = c.price;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(currentPrice &lt; avg * 0.98) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let leverage = parseInt(document.getElementById("leverageSelect").value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let maxQty = Math.floor((cash * leverage) / currentPrice);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>maxQty = Math.min(maxQty, c.available);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("quantityInput").value = maxQty;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logMessage(`Auto Advisor: ${commodityName} is undervalued. Recommendation: Buy ${maxQty} shares.`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else if(currentPrice &gt; avg * 1.02) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(portfolio[commodityName] &amp;&amp; portfolio[commodityName].shares &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>document.getElementById("quantityInput").value = portfolio[commodityName].shares;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>logMessage(`Auto Advisor: ${commodityName} is overvalued. Recommendation: Sell all holdings.`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>logMessage(`Auto Advisor: ${commodityName} is overvalued, but no holdings exist.`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logMessage(`Auto Advisor: ${commodityName} is trading near its average. Consider holding.`);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================= New Mini-Game Features ========================= */</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// A. Flash Trade Challenge</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerFlashTradeChallenge() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let modal = document.getElementById("flashTradeModal");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let timerSpan = document.getElementById("flashTradeTimer");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let button = document.getElementById("flashTradeButton");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let timeLeft = 10;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>timerSpan.innerText = timeLeft;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let countdown = setInterval(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>timeLeft--;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>timerSpan.innerText = timeLeft;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(timeLeft &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>clearInterval(countdown);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>modal.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>button.onclick = function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>clearInterval(countdown);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>cash += 500; // Bonus reward</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logMessage("Flash Trade Challenge succeeded! Bonus $500 awarded.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>modal.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("closeFlashTrade").onclick = function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>clearInterval(countdown);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>modal.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// B. Pattern Recognition Puzzle</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerPatternRecognitionPuzzle() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let modal = document.getElementById("patternPuzzleModal");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let sequenceP = document.getElementById("patternSequence");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Generate a sequence of 5 random numbers between 50 and 150</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let sequence = [];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for(let i = 0; i &lt; 5; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sequence.push(Math.floor(Math.random() * 100) + 50);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>sequenceP.innerText = "Sequence: " + sequence.join(", ");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Determine the next number with a random delta between -10 and +10</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let delta = Math.floor(Math.random() * 21) - 10;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let nextNumber = sequence[sequence.length - 1] + delta;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let correctAnswer = nextNumber &gt; sequence[sequence.length - 1] ? "Higher" : "Lower";</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("patternHigher").onclick = function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(correctAnswer === "Higher") {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>cash += 300;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>logMessage("Pattern Puzzle Correct! Bonus $300 awarded.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>logMessage("Pattern Puzzle Incorrect.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>modal.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("patternLower").onclick = function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(correctAnswer === "Lower") {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>cash += 300;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>logMessage("Pattern Puzzle Correct! Bonus $300 awarded.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>logMessage("Pattern Puzzle Incorrect.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>modal.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("closePatternPuzzle").onclick = function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>modal.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// D. Reaction Mini-Game</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerReactionMiniGame() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let modal = document.getElementById("reactionModal");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let reactionButton = document.getElementById("reactionButton");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let reactionTimerP = document.getElementById("reactionTimer");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>modal.style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>reactionButton.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>reactionTimerP.innerText = "";</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// After a random delay between 1 and 3 seconds, show the button.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let delay = Math.floor(Math.random() * 2000) + 1000;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>reactionButton.style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let startTime = Date.now();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>reactionButton.onclick = function() {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>let reactionTime = Date.now() - startTime;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>reactionTimerP.innerText = "Your reaction time: " + reactionTime + " ms";</p>
+<p class="p1"><span class="Apple-converted-space">          </span>if(reactionTime &lt; 500) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cash += 200;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>logMessage("Reaction Challenge: Great reaction! Bonus $200 awarded.");</p>
+<p class="p1"><span class="Apple-converted-space">          </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>logMessage("Reaction Challenge: Too slow!");</p>
+<p class="p1"><span class="Apple-converted-space">          </span>}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>setTimeout(() =&gt; { modal.style.display = "none"; updatePortfolioDisplay(); }, 2000);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}, delay);</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("closeReaction").onclick = function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>modal.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================= Settings &amp; Modal Handlers ========================= */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("settingsButton").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("settingsModal").style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("closeSettings").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("settingsModal").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("saveSettings").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>settings.newsTicker = document.getElementById("toggleNews").checked;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>settings.insiderTips = document.getElementById("toggleInsider").checked;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>settings.audio = document.getElementById("toggleAudio").checked;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("settingsModal").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage("Settings updated.");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("closeSummary").addEventListener("click", function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("summaryModal").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showSummaryModal() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("finalScore").innerText = "Final Portfolio Value: $" + calculatePortfolioValue().toFixed(2);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let finalAch = document.getElementById("finalAchievements");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>finalAch.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for(let key in achievements) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(achievements[key].unlocked) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>let li = document.createElement("li");</p>
+<p class="p1"><span class="Apple-converted-space">          </span>li.innerText = achievements[key].description;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>finalAch.appendChild(li);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("summaryModal").style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ========================= Initialization &amp; Intervals ========================= */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function populateCommodityDropdown() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let select = document.getElementById("commoditySelect");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>select.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>commodities.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let option = document.createElement("option");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>option.value = c.name;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>option.innerText = c.name;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>select.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function initGame() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>populateCommodityDropdown();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateMarketTable();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updatePortfolioDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateTimer();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateChart();</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Core intervals</p>
+<p class="p1"><span class="Apple-converted-space">      </span>priceInterval = setInterval(updatePrices, 2000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bankEventInterval = setInterval(triggerBankEvent, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>newsEventInterval = setInterval(triggerNewsEvent, 20000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>insiderTipInterval = setInterval(triggerInsiderTip, 30000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>dividendInterval = setInterval(triggerDividendEvent, 45000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>sentimentInterval = setInterval(() =&gt; { updateMarketSentiment(); }, 15000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>splitInterval = setInterval(triggerStockSplit, 60000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flashCrashInterval = setInterval(triggerFlashCrash, 30000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>marketRallyInterval = setInterval(triggerMarketRally, 30000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>socialMediaInterval = setInterval(triggerSocialMediaTrend, 30000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>globalEventInterval = setInterval(triggerGlobalEvent, 45000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>earningsInterval = setInterval(triggerEarningsReport, 60000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>economicInterval = setInterval(updateEconomicIndicators, 60000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>analyticsInterval = setInterval(updateAnalytics, 5000);</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// New mini-game intervals</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flashTradeInterval = setInterval(triggerFlashTradeChallenge, 120000);<span class="Apple-converted-space">      </span>// every 2 minutes</p>
+<p class="p1"><span class="Apple-converted-space">      </span>patternPuzzleInterval = setInterval(triggerPatternRecognitionPuzzle, 150000); // every 2.5 minutes</p>
+<p class="p1"><span class="Apple-converted-space">      </span>reactionInterval = setInterval(triggerReactionMiniGame, 180000);<span class="Apple-converted-space">            </span>// every 3 minutes</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>gameInterval = setInterval(function(){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>gameTime--;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateTimer();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(gameTime &lt;= 0) { endGame(); }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateMarketSentiment() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let sentiments = ["Bullish", "Bearish", "Neutral"];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let chosen = sentiments[Math.floor(Math.random() * sentiments.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("marketSentiment").innerText = "Market Sentiment: " + chosen;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(chosen === "Bullish") {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>commodities.forEach(c =&gt; { c.volatilityMultiplier *= 0.8; });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; { commodities.forEach(c =&gt; { c.volatilityMultiplier /= 0.8; }); logMessage("Bullish sentiment easing."); }, 10000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else if(chosen === "Bearish") {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>commodities.forEach(c =&gt; { c.volatilityMultiplier *= 1.2; });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; { commodities.forEach(c =&gt; { c.volatilityMultiplier /= 1.2; }); logMessage("Bearish sentiment easing."); }, 10000);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function triggerInsiderTip() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!settings.insiderTips) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let c = commodities[Math.floor(Math.random() * commodities.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>currentInsiderTip = { commodity: c.name, expires: Date.now() + 10000 };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let tipMsg = `Insider Tip: Expect a spike in ${c.name} in the next 10 seconds!`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("insiderTipArea").style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("insiderTipArea").innerText = tipMsg;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>logMessage(tipMsg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; { currentInsiderTip = null; document.getElementById("insiderTipArea").style.display = "none"; }, 10000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.onload = initGame;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
